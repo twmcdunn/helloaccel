@@ -17,6 +17,7 @@ function getPermissions() {
         else {
 
         }
+        resolvedPermissions();
       });
 
       document.body.appendChild(document.createTextNode("IOS 13 +"));
@@ -25,7 +26,7 @@ function getPermissions() {
     }
     else {
       document.body.appendChild(document.createTextNode("NOT IOS 13 +"));
-
+      resolvedPermissions();
     }
   }
   catch (error) {
@@ -35,19 +36,24 @@ function getPermissions() {
   }
 }
 
+function resolvedPermissions(){
+    setInterval(reportAccel, 100);
+}
+
+var accel = 0;
+
 document.body.appendChild(document.createTextNode("HI FROM A TEXT NODE1"));
 
-window.addEventListener("devicemotion", (event) => {
-  console.log(`${event.acceleration.x} m/s2`);
-  document.body.innerText = "ACCEL: " + `${event.acceleration.x} m/s2`;
-});
+
 
 
 window.ondevicemotion = (event) => {
-  // Process event.acceleration, event.accelerationIncludingGravity,
-  // event.rotationRate and event.interval
-  console.log(`${event.acceleration.x} m/s2`);
-  document.body.innerText = "ON MOTION ACCEL: " + `${event.acceleration.x} m/s2`;
-  document.body.appendChild(document.createTextNode("ON MOTION ACCEL: " + `${event.acceleration.x} m/s2`));
-
+  var myAccel = (event.acceleration.x ** 2 + event.acceleration.y ** 2 + event.acceleration.z ** 2) ** 0.5;
+ accel = Math.max(myAccel, accel);
 };
+
+function reportAccel(){
+  if(accel > 0.1)
+    document.body.innerText = "accel: " + accel;
+  accel = 0;
+}
