@@ -43,7 +43,7 @@ function resolvedPermissions(){
   window.ondevicemotion = (event) => {
     var myAccel = (event.acceleration.x ** 2 + event.acceleration.y ** 2 + event.acceleration.z ** 2) ** 0.5;
    accel = Math.max(myAccel, accel);
-   if(accel > 20 && myAccel < 0.3){
+   if(accel > 20 && myAccel < 1){
    reportAccel();
    }
   };
