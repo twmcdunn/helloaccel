@@ -21,6 +21,7 @@ else {
 }
 }
 catch(error){
+  document.body.appendChild(document.createTextNode("error..."));
   document.body.appendChild(document.createTextNode("error: " + error));
 
 }
