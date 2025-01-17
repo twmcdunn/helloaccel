@@ -1,11 +1,19 @@
 document.body.appendChild(document.createTextNode("REQUESTING PERMISSIONS..."));
 
 
+if (typeof DeviceMotionEvent.requestPermission === 'function') {
 const permission = await DeviceMotionEvent.requestPermission();
 if(permission === 'granted'){
 
 }
 else{
+
+}
+document.body.appendChild(document.createTextNode("IOS 13 +"));
+
+}
+else{
+  document.body.appendChild(document.createTextNode("NOT IOS 13 +"));
 
 }
 
