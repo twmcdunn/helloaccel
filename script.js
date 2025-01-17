@@ -1,3 +1,11 @@
+const permission = await DeviceMotionEvent.requestPermission();
+if(permission === 'granted'){
+
+}
+else{
+  
+}
+
 document.body.appendChild(document.createTextNode("HI FROM A TEXT NODE1"));
 
 window.addEventListener("devicemotion", (event) => {
