@@ -1,30 +1,38 @@
 document.body.appendChild(document.createTextNode("REQUESTING PERMISSIONS3..."));
 
-try{
-if (typeof DeviceMotionEvent.requestPermission === 'function') {
-  const permission = DeviceMotionEvent.requestPermission().then((permission) => {
-    document.body.appendChild(document.createTextNode("PERMISSIONS RESULTS"));
-    if (permission === 'granted') {
+var button = document.createElement("BUTTON");
+button.innerText = "GET PERMISSIONS";
+button.onclick = getPermissions;
+document.body.appendChild(button);
+
+function getPermissions() {
+
+  try {
+    if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      const permission = DeviceMotionEvent.requestPermission().then((permission) => {
+        document.body.appendChild(document.createTextNode("PERMISSIONS RESULTS"));
+        if (permission === 'granted') {
+
+        }
+        else {
+
+        }
+      });
+
+      document.body.appendChild(document.createTextNode("IOS 13 +"));
+      document.body.appendChild(document.createTextNode("permmission" + permission));
 
     }
     else {
+      document.body.appendChild(document.createTextNode("NOT IOS 13 +"));
 
     }
-  });
+  }
+  catch (error) {
+    document.body.appendChild(document.createTextNode("error..."));
+    document.body.appendChild(document.createTextNode("error: " + error));
 
-  document.body.appendChild(document.createTextNode("IOS 13 +"));
-  document.body.appendChild(document.createTextNode("permmission" + permission));
-
-}
-else {
-  document.body.appendChild(document.createTextNode("NOT IOS 13 +"));
-
-}
-}
-catch(error){
-  document.body.appendChild(document.createTextNode("error..."));
-  document.body.appendChild(document.createTextNode("error: " + error));
-
+  }
 }
 
 document.body.appendChild(document.createTextNode("HI FROM A TEXT NODE1"));
