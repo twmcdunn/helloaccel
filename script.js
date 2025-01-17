@@ -53,7 +53,7 @@ window.ondevicemotion = (event) => {
 };
 
 function reportAccel(){
-  if(accel > 0.1)
+  if(accel > 0.3)
     document.body.innerText = "accel: " + accel;
   accel = 0;
 }
