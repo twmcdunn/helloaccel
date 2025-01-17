@@ -36,24 +36,22 @@ function getPermissions() {
   }
 }
 
-function resolvedPermissions(){
-    setInterval(reportAccel, 100);
-}
 
 var accel = 0;
 
-document.body.appendChild(document.createTextNode("HI FROM A TEXT NODE1"));
+function resolvedPermissions(){
+  window.ondevicemotion = (event) => {
+    var myAccel = (event.acceleration.x ** 2 + event.acceleration.y ** 2 + event.acceleration.z ** 2) ** 0.5;
+   accel = Math.max(myAccel, accel);
+   if(accel > 1 && myAccel < 0.3){
+   reportAccel();
+   }
+  };
+}
 
 
-
-
-window.ondevicemotion = (event) => {
-  var myAccel = (event.acceleration.x ** 2 + event.acceleration.y ** 2 + event.acceleration.z ** 2) ** 0.5;
- accel = Math.max(myAccel, accel);
-};
 
 function reportAccel(){
-  if(accel > 0.3)
     document.body.innerText = "accel: " + accel;
   accel = 0;
 }
