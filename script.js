@@ -1,8 +1,9 @@
-document.body.appendChild(document.createTextNode("REQUESTING PERMISSIONS..."));
+document.body.appendChild(document.createTextNode("REQUESTING PERMISSIONS1..."));
 
 
 if (typeof DeviceMotionEvent.requestPermission === 'function') {
   const permission = DeviceMotionEvent.requestPermission().then((permission) => {
+    document.body.appendChild(document.createTextNode("PERMISSIONS RESULTS"));
     if (permission === 'granted') {
 
     }
