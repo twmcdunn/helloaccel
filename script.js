@@ -1,4 +1,4 @@
-document.body.appendChild(document.createTextNode("REQUESTING PERMISSIONS2..."));
+document.body.appendChild(document.createTextNode("REQUESTING PERMISSIONS3..."));
 
 try{
 if (typeof DeviceMotionEvent.requestPermission === 'function') {
@@ -13,6 +13,7 @@ if (typeof DeviceMotionEvent.requestPermission === 'function') {
   });
 
   document.body.appendChild(document.createTextNode("IOS 13 +"));
+  document.body.appendChild(document.createTextNode("permmission" + permission));
 
 }
 else {
