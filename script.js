@@ -1,4 +1,4 @@
-document.body.appendChild(document.createTextNode("REQUESTING PERMISSIONS3..."));
+//document.body.appendChild(document.createTextNode("REQUESTING PERMISSIONS3..."));
 
 var button = document.createElement("BUTTON");
 button.innerText = "GET PERMISSIONS";
@@ -52,6 +52,6 @@ function resolvedPermissions(){
 
 
 function reportAccel(){
-    document.body.innerText = "accel: " + accel;
+    //document.body.innerText = "accel: " + accel;
   accel = 0;
 }
