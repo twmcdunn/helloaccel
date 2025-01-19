@@ -14,6 +14,7 @@ body {
   
   .wrapper {
     display: grid;
+    margin: 0px;
     grid-template-columns: 20% 20% 20% 20% 20% 20%;
     grid-template-rows: 33% 33% 34%;
     grid-gap: 10px;
@@ -22,7 +23,7 @@ body {
   }
 
   .box {
-    margin: 40px;
+    margin: 0px;
     grid-column-start: 3;
     grid-column-end: 4;
     font-size: 150%;
