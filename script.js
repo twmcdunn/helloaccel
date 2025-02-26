@@ -4,6 +4,7 @@ var button = document.createElement("BUTTON");
 button.innerText = "GET PERMISSIONS";
 button.onclick = getPermissions;
 document.body.appendChild(button);
+var dots = 0;
 
 function getPermissions() {
 
@@ -35,6 +36,17 @@ function getPermissions() {
 
   }
   document.body.removeChild(button);
+  setInterval(animateDirections,500);
+}
+
+function animateDirections(){
+  var str = "Just listen for now";
+  for(let i = 0; i < dots % 3; i++){
+    str += ".";
+  }
+  dots++;
+  var dir = document.getElementById("dir");
+  dir.innerText = str;
 }
 
 
@@ -59,6 +71,6 @@ function reportAccel(){
     accel = Math.min(accel, 150);
     accel -= 20;
     accel /= 130.0;
-    
+
   accel = 0;
 }
