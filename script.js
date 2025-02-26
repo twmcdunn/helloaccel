@@ -54,7 +54,7 @@ function resolvedPermissions(){
 
 function reportAccel(){
     //document.body.innerText = "accel: " + accel;
-    var dir = document.getElementsById("dir");
+    var dir = document.getElementById("dir");
     dir.innerText = "accel: " + accel;
   accel = 0;
 }
