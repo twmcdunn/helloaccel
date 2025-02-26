@@ -41,7 +41,7 @@ function getPermissions() {
 
 function animateDirections(){
   var str = "Just listen for now";
-  for(let i = 0; i < dots % 3; i++){
+  for(let i = 0; i < dots % 4; i++){
     str += ".";
   }
   dots++;
