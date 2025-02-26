@@ -10,7 +10,7 @@ function getPermissions() {
   try {
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
       const permission = DeviceMotionEvent.requestPermission().then((permission) => {
-        document.body.appendChild(document.createTextNode("PERMISSIONS RESULTS"));
+        //document.body.appendChild(document.createTextNode("PERMISSIONS RESULTS"));
         if (permission === 'granted') {
 
         }
@@ -20,20 +20,21 @@ function getPermissions() {
         resolvedPermissions();
       });
 
-      document.body.appendChild(document.createTextNode("IOS 13 +"));
-      document.body.appendChild(document.createTextNode("permmission" + permission));
+      //document.body.appendChild(document.createTextNode("IOS 13 +"));
+      //document.body.appendChild(document.createTextNode("permmission" + permission));
 
     }
     else {
-      document.body.appendChild(document.createTextNode("NOT IOS 13 +"));
+      //document.body.appendChild(document.createTextNode("NOT IOS 13 +"));
       resolvedPermissions();
     }
   }
   catch (error) {
-    document.body.appendChild(document.createTextNode("error..."));
-    document.body.appendChild(document.createTextNode("error: " + error));
+    //document.body.appendChild(document.createTextNode("error..."));
+    //document.body.appendChild(document.createTextNode("error: " + error));
 
   }
+  document.body.removeChild(button);
 }
 
 
@@ -53,5 +54,7 @@ function resolvedPermissions(){
 
 function reportAccel(){
     //document.body.innerText = "accel: " + accel;
+    var dir = document.getElementsById("dir");
+    dir.innerText = "accel: " + accel;
   accel = 0;
 }
